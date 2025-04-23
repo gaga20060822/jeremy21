@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    body {
+      background: hsl(226, 43%, 10%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .profile {
+      grid-row: span 2;
+      background: hsl(246, 80%, 60%);
+      border-radius: 15px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .profile img {
+      width: 60px;
+      height: 60px;
+      border: 2px solid white;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .profile h2 {
+      font-size: 18px;
+      color: hsl(236, 100%, 87%);
+    }
+
+    .profile h1 {
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    .profile .filters {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .filters span {
+      color: hsl(236, 100%, 87%);
+      cursor: pointer;
+    }
+
+    .filters .active {
+      color: white;
+    }
+
+    .card {
+      position: relative;
+      background-color: hsl(235, 46%, 20%);
+      border-radius: 15px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .card .title {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .card .hours {
+      font-size: 32px;
+      font-weight: 300;
+    }
+
+    .card .last-week {
+      font-size: 12px;
+      color: hsl(236, 100%, 87%);
+    }
+
+    .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 80px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 60px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.work::before {
+  background-image: url('assets/icon-work.svg');
+}
+
+.play::before {
+  background-image: url('assets/icon-play.svg');
+}
+
+.study::before {
+  background-image: url('assets/icon-study.svg');
+}
+
+.exercise::before {
+  background-image: url('assets/icon-exercise.svg'); 
+}
+
+.social::before {
+  background-image: url('assets/icon-social.svg'); 
+}
+
+.selfcare::before {
+  background-image: url('assets/icon-self-care.svg'); 
+}
+    .card .content {
+      position: relative;
+      z-index: 1;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="profile">
+      <div>
+        <img src="assets/image-jeremy.png" alt="Profile">
+        <h2>Report for</h2>
+        <h1>Jeremy Robson</h1>
+      </div>
+      <div class="filters">
+        <span>Daily</span>
+        <span class="active">Weekly</span>
+        <span>Monthly</span>
+      </div>
+    </div>
+
+    <div class="card work">
+      <div class="content">
+        <div class="title">
+          <span>Work</span>
+          <span>...</span>
+        </div>
+        <div class="hours">32hrs</div>
+        <div class="last-week">Last Week - 36hrs</div>
+      </div>
+    </div>
+
+    <div class="card play">
+      <div class="content">
+        <div class="title">
+          <span>Play</span>
+          <span>...</span>
+        </div>
+        <div class="hours">10hrs</div>
+        <div class="last-week">Last Week - 8hrs</div>
+      </div>
+    </div>
+
+    <div class="card study">
+      <div class="content">
+        <div class="title">
+          <span>Study</span>
+          <span>...</span>
+        </div>
+        <div class="hours">4hrs</div>
+        <div class="last-week">Last Week - 7hrs</div>
+      </div>
+    </div>
+
+    <div class="card exercise">
+      <div class="content">
+        <div class="title">
+          <span>Exercise</span>
+          <span>...</span>
+        </div>
+        <div class="hours">4hrs</div>
+        <div class="last-week">Last Week - 5hrs</div>
+      </div>
+    </div>
+
+    <div class="card social">
+      <div class="content">
+        <div class="title">
+          <span>Social</span>
+          <span>...</span>
+        </div>
+        <div class="hours">5hrs</div>
+        <div class="last-week">Last Week - 10hrs</div>
+      </div>
+    </div>
+
+    <div class="card selfcare">
+      <div class="content">
+        <div class="title">
+          <span>Self Care</span>
+          <span>...</span>
+        </div>
+        <div class="hours">2hrs</div>
+        <div class="last-week">Last Week - 2hrs</div>
+      </div>
+    </div>
+
+  </div>
+
+  
+<script>
+  const data = {
+    daily: {
+      work: ["5hrs", "Yesterday - 7hrs"],
+      play: ["1hr", "Yesterday - 2hrs"],
+      study: ["0hrs", "Yesterday - 1hr"],
+      exercise: ["1hr", "Yesterday - 1hr"],
+      social: ["1hr", "Yesterday - 3hrs"],
+      selfcare: ["0hr", "Yesterday - 1hr"]
+    },
+    weekly: {
+      work: ["32hrs", "Last Week - 36hrs"],
+      play: ["10hrs", "Last Week - 8hrs"],
+      study: ["4hrs", "Last Week - 7hrs"],
+      exercise: ["4hrs", "Last Week - 5hrs"],
+      social: ["5hrs", "Last Week - 10hrs"],
+      selfcare: ["2hrs", "Last Week - 2hrs"]
+    },
+    monthly: {
+      work: ["103hrs", "Last Month - 128hrs"],
+      play: ["23hrs", "Last Month - 29hrs"],
+      study: ["13hrs", "Last Month - 19hrs"],
+      exercise: ["11hrs", "Last Month - 18hrs"],
+      social: ["21hrs", "Last Month - 23hrs"],
+      selfcare: ["7hrs", "Last Month - 11hrs"]
+    }
+  };
+
+  const filters = document.querySelectorAll(".filters span");
+  const cards = document.querySelectorAll(".card");
+
+  filters.forEach(filter => {
+    filter.addEventListener("click", () => {
+      document.querySelector(".filters .active").classList.remove("active");
+      filter.classList.add("active");
+
+      const selected = filter.textContent.toLowerCase();
+
+      cards.forEach(card => {
+        const type = card.classList[1]; 
+        const [hours, last] = data[selected][type];
+        card.querySelector(".hours").textContent = hours;
+        card.querySelector(".last-week").textContent = last;
+      });
+    });
+  });
+
+  </script>
+</body>
+</html>
